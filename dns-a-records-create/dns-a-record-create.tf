@@ -33,7 +33,7 @@ resource "random_integer" "ip4" {
 resource "kopicloud_dns_a_record" "test_a" {
   hostname   = "labtest${random_string.random.result}"
   ip_address = "${random_integer.ip1.result}.${random_integer.ip2.result}.${random_integer.ip3.result}.${random_integer.ip4.result}"
-  zone_name  = "kopicloud.local"
+  zone_name  = var.zone_name
 }
 
 # Output Created DNS A Record 
